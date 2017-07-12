@@ -2,6 +2,14 @@
 
 #### In this repository I am going to upload sample projects from the Udemy course Modern React. 
 
+[1.Youtube API search](/1.YouTube-API-Search)
+
+[2.Redux-Bookstore](/2.Redux-books)
+
+[3.Weather Forecast with OpenWeatherMap and GoogleMapsAPI](/3.WeatherForecast)
+
+[4.React-Router with react-router-dom](/4.React-Router)
+
 #### How to start: 
      1.Install NodeJs
      2.Run commands:
