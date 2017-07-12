@@ -4,7 +4,7 @@ import { Component } from 'react';
 export default class GoogleMapComponent extends Component{
     componentDidMount(){
         new google.maps.Map(this.refs.map, {
-            zoom: 8,
+            zoom: 10,
             center: {
                 lat: this.props.lat,
                 lng: this.props.lon

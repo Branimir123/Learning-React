@@ -12,7 +12,8 @@ svg{
 }
 
 .app-component{
-    background-color: rgba(33,33,33,0.1);
+    background-color: rgba(150,150,150,0.1);
+    padding: 20px;
 }
 
 td:first-of-type, td:first-of-type > div {
