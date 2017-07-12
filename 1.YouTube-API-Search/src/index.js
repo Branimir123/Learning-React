@@ -11,7 +11,7 @@ import SearchBar from './components/search-bar';
 import VideoList from './components/video-list'
 import VideoDetail from './components/video-detail'
 
-const API_KEY = 'AIzaSyC0seU_15jrx5XjkyxMm8GpNiI_tad50oE';
+const API_KEY = require('../config.js').API_KEY;
 
 //Main app component
 class App extends Component {
