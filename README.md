@@ -10,6 +10,8 @@
 
 [4.React-Router with react-router-dom](/4.React-Router)
 
+[5.Advanced React and Redux](/5.5.AdvancedReactAndRedux)
+
 #### How to start: 
      1.Install NodeJs
      2.Run commands:
