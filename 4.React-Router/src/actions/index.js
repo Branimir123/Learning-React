@@ -4,6 +4,7 @@ const API_KEY = require('../../config.js').API_KEY;
 export const FETCH_POSTS = 'FETCH_POSTS';
 export const CREATE_POST = 'CREATE_POST';
 export const GET_POST = 'GET_POST';
+export const DELETE_POST = 'DELETE_POST';
 
 const ROOT_URL = 'http://reduxblog.herokuapp.com/api';
 
@@ -35,8 +36,11 @@ export function getPost(id){
     };
 }
 
-export function deletePost(id){
-    const request = axios.delete(`${ROOT_URL}/posts/${id}${API_KEY}`);
+export function deletePost(id, callback){
+    const request = axios.delete(`${ROOT_URL}/posts/${id}${API_KEY}`)
+        .then(() => 
+            callback() 
+        );
 
     return {
         type: DELETE_POST,
