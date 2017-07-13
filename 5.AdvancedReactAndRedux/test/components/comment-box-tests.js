@@ -16,6 +16,10 @@ import CommentBox from '../../src/components/comment-box';
         expect(component.find('button')).to.exist;
     });
 
+    it('has a label', () => {
+        expect(component.find('label')).to.exist;
+    })
+
     describe('css', () => {
         it('has the correct css class', () =>{
             expect(component).to.have.class('comment-box');
