@@ -3,9 +3,10 @@ import CommentList from '../../src/components/comment-list';
 
  describe('CommentList Component', () =>{
     let component;
+    let value = "Some dummy value";
 
     beforeEach(() => {
-        component = renderComponent(CommentList);
+        component = renderComponent(CommentList, null, { comments: [{value}, {value}] });
     });
   
     describe('sub-elements existance', () => {
@@ -14,9 +15,12 @@ import CommentList from '../../src/components/comment-list';
         });
 
         it('shows an li for each comment', () => {
-            expect(component.find('div')).to.exist;
+            expect(component.find('li').length).to.equals(2);
         });
-    });
 
-   
+        it('shows each comment that is provided', () => {
+            expect(component).to.contain(value);
+            expect(component).to.contain(value);    
+         });
+    });  
  });
