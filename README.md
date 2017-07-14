@@ -17,10 +17,11 @@
 [7.Middleware](/7.Middleware)
 
 #### How to start: 
-     1.Install NodeJs
-     2.Run commands:
+     1. Install NodeJs
+     2. Run commands:
      * 'npm install' in the project root directory
      * 'npm start' in the project root directory
      3. Open 'localhost:8080'
-     
-     Note: Webpack will build automatically after every save
+     4. Testing
+     * 'npm run test' to run the tests
+     * 'npm run test:watch' to run the tests with --watch option 
