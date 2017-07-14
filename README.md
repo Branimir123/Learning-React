@@ -10,7 +10,11 @@
 
 [4.React-Router with react-router-dom](/4.React-Router)
 
-[5.Advanced React and Redux](/5.5.AdvancedReactAndRedux)
+[5.Advanced React and Redux](/5.AdvancedReactAndRedux)
+
+[6.Higher Order Components (HOC)](/6.HigherOrderComponents)
+
+[7.Middleware](/7.Middleware)
 
 #### How to start: 
      1.Install NodeJs
