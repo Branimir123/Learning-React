@@ -1,7 +1,7 @@
+const AuthenticationController = require('./controllers/authentication');
+
 const router = (app) => {
-    app.get('/', (req, res, next) => {
-        res.send(['hi','there']);
-    });
+    app.post('/signup', AuthenticationController.signup)
 }
 
 module.exports = router;
