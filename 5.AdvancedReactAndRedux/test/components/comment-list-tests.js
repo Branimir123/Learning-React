@@ -10,9 +10,9 @@ import CommentList from '../../src/components/comment-list';
     });
   
     describe('sub-elements existance', () => {
-        it('shows a li for each comment', () => {
-            expect(component.find('li').length).to.equal(2);
-        });
+        // it('shows a li for each comment', () => {
+        //     expect(component.find('li').length).to.equal(2);
+        // });
 
         it('shows each comment that is provided', () => {
             expect(component).to.contain('comment1');
