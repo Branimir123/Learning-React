@@ -1,4 +1,4 @@
-// Main starting point of the server
+/* Main entry point of the server*/ 
 const express = require('express');
 const http = require('http');
 const bodyParse = require('body-parser');

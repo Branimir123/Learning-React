@@ -1,3 +1,4 @@
+/* Router */
 const AuthenticationController = require('./controllers/authentication');
 
 const router = (app) => {
