@@ -31,7 +31,7 @@ exports.signup = (req, res, next) => {
         user.save((err) => {
             if(err){
                 return next(err);
-            }
+            }   
             // Respond to request indicating the user was created
             res.json({ token: tokenForUser(user) });
         });
