@@ -8,7 +8,7 @@ const requireSignin = passport.authenticate('local', { session: false });
 
 const router = (app) => {
     app.get('/', requireAuth, (req, res) => {
-        res.send({ hi: 'there' });
+        res.send({ message: 'Super Secret Code Is: GODIE' });
     });
     app.post('/signin', requireSignin, AuthenticationController.signin);
     app.post('/signup', AuthenticationController.signup);
