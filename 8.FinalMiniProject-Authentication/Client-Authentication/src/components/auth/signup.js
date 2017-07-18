@@ -15,24 +15,40 @@ const renderField = ({ input, label, type, meta: { touched, error } }) => (
 )
 
 class Signup extends Component {
-    render () {
-        //const { handleSubmit, fields: { email, password, passwordConfirm }} = this.props;
+    handleFormSubmit(formProps) {
+        // Call action creator to sign up the user
+        this.props.signupUser(formProps);
+    }
+
+    renderAlert = () => {
+            if (this.props.errorMessage){
+                return <div className="alert alert-dange"><strong>Oops!</strong>{this.props.errorMessage}</div>
+            }
+    }
+
+    render() {
+        const { handleSubmit, fields: { email, password, passwordConfirm }} = this.props;
 
         return (
-            <form>
+            <form onSubmit={ handleSubmit(this.handleFormSubmit.bind(this)) }>
                 <Field name="email" type="text" component={renderField} label="Age"/>
                 <Field name="password" type="password" component={renderField} label="Password"/>
                 <Field name="passwordConfirm" type="password" component={renderField} label="PasswordConfirm"/>            
                 <button action="submit" className="btn btn-primary">Sign up</button>
+                {this.renderAlert()}
             </form>
         );
     }
 }
 
-export default Signup = reduxForm({
+function mapStateToProps(state) {
+    return { errorMessage: state.auth.error };
+}
+
+Signup = reduxForm({
     form: 'signup',
     fields: ['email', 'password', 'passwordConfirm'],
     validate: validate
 })(Signup);
 
-Signup = connect(null, null)(Signup);
+export default Signup = connect(mapStateToProps, actions)(Signup);

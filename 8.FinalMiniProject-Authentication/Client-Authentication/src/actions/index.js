@@ -16,7 +16,7 @@ export function signinUser({ email, password }) {
                 // - Save the JWT token
                 localStorage.setItem('token', reponse.data.token);
                          
-                // - redirect to the route '/feautre' (or what we need)
+                // - redirect to the route '/feautre' (or whatever route we need)
                 browserHistory.push('/feature');
             })
             // If request is bad   
@@ -27,15 +27,36 @@ export function signinUser({ email, password }) {
     }
 }
 
-export function authError(error) {
-    return {
-        type: AUTH_ERROR,
-        payload: error
+export function signupUser({ email, password }) {
+    return function(dispatch) {
+        // Submit the post request
+        axios.post(`${ROOT_URL}/signup`, { email, password })
+            .then(() => {
+                // Update state, so it shows that we are authenticated
+                dispatch({ type: AUTH_USER});
+
+                // Save token to local storage
+                localStorage.setItem('token', response.data.token);
+
+                // - redirect to the route '/feature' (or whatever route we need)
+                browserHistory.push('/feautre');
+            })
+            .catch(() => {
+                dispatch(authError(response.data.error));
+            });
     }
 }
+
 
 export function signoutUser() {
     localStorage.removeItem('token');
 
     return { type: UNAUTH_USER };
+}
+
+export function authError(error) {
+    return {
+        type: AUTH_ERROR,
+        payload: error
+    }
 }
