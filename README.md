@@ -16,6 +16,8 @@
 
 [7.Middleware](/7.Middleware)
 
+[8.Final Mini Project - Authentication](/8.FinalMiniProject-Authentication)
+
 #### How to start: 
      1. Install NodeJs
      2. Run commands:
