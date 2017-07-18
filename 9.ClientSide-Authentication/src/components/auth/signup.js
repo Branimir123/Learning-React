@@ -1,35 +1,59 @@
 import React, { Component } from 'react';
-import { reduxForm } from 'redux-form';
+import { Field, reduxForm } from 'redux-form';
 import * as actions from '../../actions';
 import { connect } from 'react-redux';
 
+const validate = values => {
+    const errors = {};
+  
+    if(!values.email) {
+        errors.email = "You have to provide an email";
+    }
+
+    if(!values.password) {
+        errors.password = "You have to provide a password";
+    }
+
+    if(values.password < 8){
+        errors.password = "Password must be at least 8 characters";
+    }
+
+    if(values.password != values.passwordConfirm){
+        errors.passwordConfirm = "Passwords doesn't match";
+    }
+
+    return errors;
+}
+
+const renderField = ({ input, label, type, meta: { touched, error } }) => (
+  <div>
+    <label>{label}</label>
+    <div>
+      <input className="form-control" {...input} placeholder={label} type={type}/>
+      {touched && error && <span>{error}</span>}
+    </div>
+  </div>
+)
+
 class Signup extends Component {
     render () {
-        const { handleSubmit, fields: { email, password, passwordConfirm }} = this.props;
+        //const { handleSubmit, fields: { email, password, passwordConfirm }} = this.props;
 
         return (
             <form>
-                <fieldset className="form-group">
-                    <label>Email:</label>
-                    <input type="text" className="form-control" {...email}/>
-                </fieldset>   
-                <fieldset className="form-group">
-                    <label>Password:</label>
-                    <input type="text" className="form-control" {...password} type="password"/>
-                </fieldset>
-                <fieldset className="form-group">
-                    <label>Confirm Password:</label>
-                    <input type="text" className="form-control" {...passwordConfirm} type="password"/>
-                </fieldset>
+                <Field name="email" type="text" component={renderField} label="Age"/>
+                <Field name="password" type="password" component={renderField} label="Password"/>
+                <Field name="passwordConfirm" type="password" component={renderField} label="PasswordConfirm"/>            
                 <button action="submit" className="btn btn-primary">Sign up</button>
             </form>
         );
     }
 }
 
-Signup = reduxForm({
+export default Signup = reduxForm({
     form: 'signup',
-    fields: ['email', 'password', 'passwordConfirm']
+    fields: ['email', 'password', 'passwordConfirm'],
+    validate: validate
 })(Signup);
 
-export default Signup = connect(null, null)(Signup);
+Signup = connect(null, null)(Signup);
