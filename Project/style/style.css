@@ -16,11 +16,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d0e4f7', end
 }
 
 .app-component{ 
-    padding-top: 30px;
+    padding-top: 100px;
 }
 
 .weather-icon{
-    width: 8%;
+    width: 7%;
     size:auto;
 }
 
@@ -113,4 +113,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d0e4f7', end
 .answer-yes,
 .answer-no {
     margin: 100px;
+}
+
+.message-loading{
+    color: rgba(255,255,255,1);
 }

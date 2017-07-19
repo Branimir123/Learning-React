@@ -19,11 +19,11 @@ class Geolocation extends Component {
 
         return (
             !this.props.isGeolocationAvailable
-            ? <div>Your browser does not support geolocation </div>
+            ? <div className="text text-danger">Your browser does not support geolocation </div>
             : !this.props.isGeolocationEnabled
-                ? <div> Your geolocation isn't enabled </div>
+                ? <div className="text text-danger"> Please enable your location, so we can find where you are. </div>
                 : !this.props.coords
-                    ? <div> Fetching your location... </div>
+                    ? <div className="message-loading"> Fetching your location... </div>
                     : <div></div>
         );
     }
