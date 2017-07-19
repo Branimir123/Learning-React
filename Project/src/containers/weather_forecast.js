@@ -10,19 +10,22 @@ class WeatherForecast extends Component {
             || description == "snow"){
                 return <p className="answer-yes">YES</p>;
         }
-        else{
+        else {
             return <p className="answer-no">NO</p>;
         }
     }
 
-    renderWeather(cityData){
-        const weatherDescription = cityData.description;
-        const iconSrc = `http://openweathermap.org/img/w/${cityData.icon}.png`
+    renderWeather(weather){
+        const weatherDescription = weather.description;
+        const iconSrc = `http://openweathermap.org/img/w/${weather.icon}.png`;
+        const city = weather.city;
+
         return (
             <div>   
                 {this.renderAnswer(weatherDescription)}
-                <img src={iconSrc} alt=""/>
+                <img className="weather-icon" src={iconSrc} alt="icon-img"/>
                 <p>{weatherDescription}</p>
+                <p>Your location: {city}</p>
             </div>
         );
     }
@@ -30,10 +33,7 @@ class WeatherForecast extends Component {
     render() {
        return (
             <div>
-               if(this.props.weather) {
-                        this.renderWeather(this.props.weather)
-                    }
-            
+                {this.renderWeather(this.props.weather)}       
             </div> 
        );
     }

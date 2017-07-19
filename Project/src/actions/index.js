@@ -11,7 +11,6 @@ export default function fetchWeather(coordinates) {
         axios.get(url)
             .then(response => {
                 // Update state
-                console.log('response: ', response);
                 dispatch({
                     type: FETCH_WEATHER,
                     payload: response
