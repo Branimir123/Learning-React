@@ -5,23 +5,21 @@ const API_KEY  = require('../../config').API_KEY;
 const ROOT_URL = `http://api.openweathermap.org/data/2.5/weather?appid=${API_KEY}`;
 
 export default function fetchWeather(coordinates) {
-    return function(dispatch){
-        console.log('action coords', coordinates);
-        
+    return function(dispatch){        
         const url = `${ROOT_URL}&lat=${coordinates.latitude}&lon=${coordinates.longitude}`;
         
         axios.get(url)
             .then(response => {
                 // Update state
-                dipatch({
+                console.log('response: ', response);
+                dispatch({
                     type: FETCH_WEATHER,
                     payload: response
                 });
             })
-            .catch(() => {
-                dispatch(authError('Cannot fetch weather'));
+            .catch(err => {
+                dispatch(authError(err));
             });
-
     }
 }
 

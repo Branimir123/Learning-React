@@ -9,7 +9,7 @@ class Geolocation extends Component {
     constructor(props) {
         super(props);
 
-        this.state = { coords: {} };
+        this.state = { coords: '' };
     }
 
     render() {
@@ -39,12 +39,6 @@ class Geolocation extends Component {
 
 function mapDispatchToProps(dispatch){
     return bindActionCreators({ fetchWeather }, dispatch);
-}
-
-function mapStateToProps(props) {
-    return {
-        coords: state.coords
-    };
 }
 
 const GeolocationHOC = geolocated({
