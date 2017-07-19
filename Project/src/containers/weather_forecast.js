@@ -24,8 +24,8 @@ class WeatherForecast extends Component {
             <div>   
                 {this.renderAnswer(weatherDescription)}
                 <img className="weather-icon" src={iconSrc} alt="icon-img"/>
-                <p>{weatherDescription}</p>
-                <p>Your location: {city}</p>
+                <p className="weather-description">{weatherDescription}</p>
+                <p className="weather-location">Your location: {city}</p>
             </div>
         );
     }
