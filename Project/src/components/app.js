@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Geolocation from '../containers/weather_forecast';
+import Geolocation from '../containers/geolocation';
 
 export default class App extends Component {
   render() {
@@ -8,6 +8,6 @@ export default class App extends Component {
         Do I need an umbrella
         <Geolocation />
       </div>
-    );
+    );  
   }
 }
